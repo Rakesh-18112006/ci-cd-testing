@@ -18,7 +18,12 @@ jobs:
                   script : |
                       echo "Starting redeployment on production server..."
                       ls
-                      
+                      cd ci-cd-testing/
+                      git pull origin main
+                      pnpm install 
+                      pnpm run build
+                      pm2 restart all
+
                       
 
             
