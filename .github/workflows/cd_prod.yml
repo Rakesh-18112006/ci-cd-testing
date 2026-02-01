@@ -17,6 +17,8 @@ jobs:
                   port : 22
                   script : |
                       echo "Starting redeployment on production server..."
+                      ls
+                      
                       
 
             
