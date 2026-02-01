@@ -18,6 +18,15 @@ jobs:
                   script : |
                       echo "Starting redeployment on production server..."
                       ls
+                      set -e
+
+                      export NVM_DIR="$HOME/.nvm"
+                      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+                      nvm use --lts
+                    
+                      corepack enable
+                      corepack prepare pnpm@latest --activate
+                      
                       cd ci-cd-testing/
                       git pull origin main
                       pnpm install 
