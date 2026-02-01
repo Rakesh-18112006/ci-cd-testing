@@ -2,7 +2,7 @@ name : CD Production Deployment
 on:
     push:
         branches:
-            - "main"
+            - main
 jobs:
     redeploy_prod:
         name : Redeploy to Production
@@ -17,6 +17,7 @@ jobs:
                   port : 22
                   script : |
                       echo "Starting redeployment on production server..."
+                      
 
             
 
