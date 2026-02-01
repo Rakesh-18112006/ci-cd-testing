@@ -1,0 +1,23 @@
+name : CD Production Deployment
+on:
+    push:
+        branches:
+            - "main"
+jobs:
+    redeploy_prod:
+        name : Redeploy to Production
+        runs-on : ubuntu-latest
+        steps:
+            - name : SSH to Production Server and Redeploy
+              uses : appleboy/ssh-action@v1
+              with:
+                  host : ${{ secrets.PROD_SERVER_HOST }}
+                  username : ${{ secrets.PROD_SERVER_USER }}
+                  key : ${{ secrets.PROD_SERVER_SSH_KEY }}
+                  port : 22
+                  script : |
+                      echo "Starting redeployment on production server..."
+
+            
+
+
